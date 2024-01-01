@@ -17,6 +17,10 @@ public class Plate {
         if (this.food < 0) this.food = 0;
     }
 
+    public void addFood(int addFood) {
+        if (addFood > 0) this.food += addFood;
+    }
+
     public void info() {
         System.out.println("В тарелке: " + food + " еды");
     }

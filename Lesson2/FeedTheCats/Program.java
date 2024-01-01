@@ -47,7 +47,14 @@ public class Program {
                 needFood += cat.getAppetite();
             }
         }
-        plate.setFood(needFood);
-        System.out.println("Добавлено " + needFood + " еды");
+
+        if (plate.getFood() < needFood) {
+            int addFood = 0;
+            addFood = needFood - plate.getFood();
+            plate.addFood(addFood);
+            System.out.println("Добавлено " + addFood + " еды");
+        }
+
+        plate.info();
     }
 }
