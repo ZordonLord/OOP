@@ -18,7 +18,8 @@ public class Plate {
     }
 
     public void addFood(int addFood) {
-        if (addFood > 0) this.food += addFood;
+        this.food += addFood;
+        if (this.food < 0) this.food = 0;
     }
 
     public void info() {

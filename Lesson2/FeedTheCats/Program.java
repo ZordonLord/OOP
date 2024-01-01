@@ -1,12 +1,10 @@
 package Lesson2.FeedTheCats;
 
-import Lesson1.Product;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Program {
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         Cat cat1 = new Cat("Barsik", 10, false);
         Cat cat2 = new Cat("Tom", 15, false);
         Cat cat3 = new Cat("Kitty", 20, false);
@@ -25,14 +23,7 @@ public class Program {
         plate.info();
 
         System.out.println("----------");
-
-        for (Cat cat : cats) {
-            if(cat.eat(plate.getFood())) {
-                plate.setFood(plate.getFood() - cat.getAppetite());
-                System.out.println(cat.getName() + " поел");
-            } else System.out.println(cat.getName() + " не поел");
-        }
-
+        Feed.feedCat(cats, plate);
         System.out.println("----------");
 
         for (Cat cat : cats) {
@@ -41,18 +32,16 @@ public class Program {
 
         plate.info();
 
-        int needFood = 0;
-        for (Cat cat : cats) {
-                if (!cat.isSatiety()) {
-                needFood += cat.getAppetite();
-            }
-        }
+        Feed.addFood(cats, plate);
 
-        if (plate.getFood() < needFood) {
-            int addFood = 0;
-            addFood = needFood - plate.getFood();
-            plate.addFood(addFood);
-            System.out.println("Добавлено " + addFood + " еды");
+        plate.info();
+
+        System.out.println("----------");
+        Feed.feedCat(cats, plate);
+        System.out.println("----------");
+
+        for (Cat cat : cats) {
+            cat.info();
         }
 
         plate.info();
