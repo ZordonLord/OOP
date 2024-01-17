@@ -11,13 +11,13 @@ public class Worker extends Employee {
         return salary;
     }
 
-    public Worker(String name, String surName, double salary) {
-        super(name, surName, salary);
+    public Worker(String name, String surName, double salary, int age) {
+        super(name, surName, salary, age);
     }
 
     @Override
     public String toString() {
-        return String.format("%s %s; Рабочий; Среднемесячная заработная плата: %.2f руб.",
-                surName, name, calculateSalary());
+        return String.format("%s %s; Возраст: %d; Рабочий; Среднемесячная заработная плата: %.2f руб./мес",
+                surName, name, age, calculateSalary());
     }
 }
