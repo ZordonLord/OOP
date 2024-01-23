@@ -23,9 +23,39 @@ public class Program {
 
     public static void main(String[] args) {
         Orange orange1 = new Orange();
-        System.out.println("Вес апельсина: " + orange1.getWeight());
+        Orange orange2 = new Orange();
+        Orange orange3 = new Orange();
 
-        Box<Orange> boxOrange = new Box<>();
+        Apple apple1 = new Apple();
+        Apple apple2 = new Apple();
+        Apple apple3 = new Apple();
+        Apple apple4 = new Apple();
+
+        Box<Orange> boxOrange1 = new Box<>("boxOrange1");
+        boxOrange1.Add(orange1);
+        boxOrange1.Add(orange2);
+        boxOrange1.Add(orange3);
+
+        Box<Apple> boxApple1 = new Box<>("boxApple1");
+        boxApple1.Add(apple1);
+        boxApple1.Add(apple2);
+        boxApple1.Add(apple3);
+        boxApple1.Add(apple4);
+
+        Box<Apple> boxApple2 = new Box<>("boxApple2");
+
+        System.out.println(boxOrange1);
+        System.out.println(boxApple1);
+        System.out.println(boxApple2);
+
+        System.out.println(boxOrange1.compare(boxApple1));
+
+        boxApple1.transfer(boxApple2);
+
+        System.out.println(boxApple1);
+        System.out.println(boxApple2);
+
+
 
     }
 }
