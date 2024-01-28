@@ -46,7 +46,18 @@ public class TableService implements Model {
      * @param name
      * @return
      */
+    @Override
     public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
+        for (Table table : tables) {
+            Collection<Reservation> reservation = table.getReservations();
+            for (Reservation element : reservation) {
+                if (element.getId() == oldReservation) {
+                    int newReservation = reservationTable(reservationDate, tableNo, name);
+                    reservation.clear();
+                    return newReservation;
+                }
+            }
+        }
         return -1;
     }
 

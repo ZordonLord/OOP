@@ -1,6 +1,7 @@
 package Lesson5.models;
 
 import java.util.Date;
+import java.util.Locale;
 
 public class Reservation {
 
@@ -39,5 +40,10 @@ public class Reservation {
 
     public Table getTable() {
         return table;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(Locale.getDefault(), "бронь: %d на имя: %s", id, name);
     }
 }

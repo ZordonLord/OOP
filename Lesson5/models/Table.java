@@ -25,7 +25,8 @@ public class Table {
 
     @Override
     public String toString() {
-        return String.format(Locale.getDefault(), "Столик #%d", no);
+        if (getReservations().isEmpty()) return String.format(Locale.getDefault(), "Столик #%d", no);
+        else return String.format(Locale.getDefault(), "Столик #%d %s", no, reservations);
     }
 
 }
