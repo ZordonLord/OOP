@@ -13,23 +13,29 @@ public class Program {
      */
     public static void main(String[] args) {
         Publisher publisher = new JobAgency();
-        Company google = new Company("Google", publisher, 120000);
-        Company yandex = new Company("Yandex", publisher, 95000);
-        Company geekBrains = new Company("GeekBrains", publisher, 98000);
+        Company google = new Company("Google", publisher);
+        Company yandex = new Company("Yandex", publisher);
+        Company geekBrains = new Company("GeekBrains", publisher);
 
         Student student1 = new Student("Студент #1");
         Master master1 = new Master("Мастер #1");
         Master master2 = new Master("Мастер #2");
+        Middle middle1 = new Middle("Мидл #1");
 
         publisher.registerObserver(student1);
         publisher.registerObserver(master1);
         publisher.registerObserver(master2);
+        publisher.registerObserver(middle1);
 
-        for (int i = 0; i < 3; i++){
-            google.needEmployee();
-            yandex.needEmployee();
-            geekBrains.needEmployee();
-        }
+        google.addVacancy("Vacancy #1", 30500);
+        google.addVacancy("Vacancy #2", 90000);
+        yandex.addVacancy("Vacancy #1", 80000);
+        geekBrains.addVacancy("Vacancy #1", 60000);
+        google.addVacancy("Vacancy #3", 120000);
+
+        google.needEmployee();
+        yandex.needEmployee();
+        geekBrains.needEmployee();
 
     }
 
